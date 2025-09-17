@@ -1,0 +1,11 @@
+[
+  {
+    "id_transaccion": "TXN001",
+    "items": [
+      {
+        "sku": "SKU001",
+        "cantidad": 1
+      }
+    ]
+  }
+]

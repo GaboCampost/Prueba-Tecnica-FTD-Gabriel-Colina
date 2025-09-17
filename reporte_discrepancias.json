@@ -1,0 +1,14 @@
+[
+  {
+    "sku": "SKU001",
+    "tipo_discrepancia": "VENTA_SIN_REGISTRO_INV",
+    "cantidad_vendida": 16,
+    "cantidad_inventario": 0
+  },
+  {
+    "sku": "SKU0021",
+    "tipo_discrepancia": "VENTA_SIN_REGISTRO_INV",
+    "cantidad_vendida": 7,
+    "cantidad_inventario": 0
+  }
+]
