@@ -52,7 +52,7 @@ La solucion se basa en tres pasos principales:
     ```archivo_ventas.json
     [
         {
-            "sku": "SKU00212",
+            "sku": "SKU002",
             "tipo": "SALIDA_POR_VENTA",
             "cantidad_ajustada": 7
         }
@@ -61,6 +61,6 @@ La solucion se basa en tres pasos principales:
 
  ### Notas
 
- - El programa solo considera movimientos de inventario SALIDA_POR_VENTA
+ - El programa solo considera movimientos de inventario de tipo "SALIDA_POR_VENTA"
  - Las cantidades se procesan como valores enteros
  - En caso de no encontrar discrepancias, se mostrará un mensaje informativo
