@@ -54,26 +54,35 @@ def generar_reporte(ventas_por_sku,inventario_por_sku):
     ERR_REGISTRO = "VENTA_SIN_REGISTRO_INV"
     ERR_FALTANTE = "FALTANTE_EN_INVENTARIO"
     ERR_SOBRANTE = "SOBRANTE_EN_INVENTARIO"
+    ERR_INVENTARIO_SIN_VENTA = "SALIDA_INVENTARIO_SIN_VENTA"
 
     if not isinstance(ventas_por_sku,dict) or not isinstance(inventario_por_sku,dict):
         print(f"Los parametros deben ser diccionarios.")
     
-    for sku in ventas_por_sku:
-        #Verificar que la venta tenga registro en el inventario
-        if sku not in inventario_por_sku:
+    #Obtener todos los sku
+
+    todos_los_sku = set(ventas_por_sku.keys()) | set(inventario_por_sku.keys())
+    
+    for sku in todos_los_sku:
+        #Obtener datos
+        cantidad_ventas = ventas_por_sku.get(sku,0)
+        cantidad_inventario = inventario_por_sku.get(sku,0)
+
+        if sku in ventas_por_sku and sku not in inventario_por_sku:
             discrepancias.append({
                 "sku": sku,
                 "tipo_discrepancia": ERR_REGISTRO,
                 "cantidad_vendida": ventas_por_sku[sku],
                 "cantidad_inventario": 0
             })
-        else:
-            #Verificar que la venta 
-            cantidad_ventas = ventas_por_sku[sku]
-            cantidad_inventario = inventario_por_sku[sku]
-
-            #Verificar validez
-            if cantidad_inventario != cantidad_ventas:
+        elif sku in inventario_por_sku and sku not in ventas_por_sku:
+            discrepancias.append({
+                "sku": sku,
+                "tipo_discrepancia": ERR_INVENTARIO_SIN_VENTA,
+                "cantidad_vendida": 0,
+                "cantidad_inventario": inventario_por_sku[sku]
+            })
+        elif cantidad_inventario != cantidad_ventas:
                 #Verificar tipo de fallo
                 if cantidad_ventas < cantidad_inventario:
                     ERR_REGRISTRADO = ERR_SOBRANTE
@@ -101,7 +110,7 @@ def generar_reporte(ventas_por_sku,inventario_por_sku):
 
         except Exception as e:
             print(f"Error al crear el reporte {e}.")
-
+    return discrepancias
 
 
 
