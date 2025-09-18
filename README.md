@@ -14,6 +14,7 @@ La solucion se basa en tres pasos principales:
     - VENTA_SIN_REGISTRO_INV: Ventas sin registro correspondiente en inventario
     - FALTANTE_EN_INVENTARIO: Menos unidades en inventario que las vendidas
     - SOBRANTE_EN_INVENTARIO: Más unidades en inventario que las vendidas
+    - **SALIDA_INVENTARIO_SIN_VENTA** : Se da salida del inventario sin registrarse una venta. Este agregado puede servir para facilitar el análisis de los datos, al ser un caso posible en los datos.
 
 ## Requisitos
 - Python 3.6 o superior
