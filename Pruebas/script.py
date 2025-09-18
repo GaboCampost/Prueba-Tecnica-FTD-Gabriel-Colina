@@ -49,6 +49,13 @@ def crear_archivos_ejemplo():
                 { "sku": "SKU002", "cantidad": 6 },
                 { "sku": "SKU003", "cantidad": 4 }
             ]
+        },
+        {
+            "id_transaccion": "TXN006", #Caracter especial
+            "items": [
+                { "sku": "SKU002-ñ", "cantidad": 6 },
+                { "sku": "SKU003", "cantidad": 999999 }
+            ]
         }
     ]
     
@@ -62,7 +69,8 @@ def crear_archivos_ejemplo():
         { "sku": "SKU006", "tipo": "SALIDA_POR_DONACION", "cantidad_ajustada": 1 },
         { "sku": "SKU007", "tipo": "SALIDA_POR_VENTA", "cantidad_ajustada": 1 },
         { "sku": "SKU009", "tipo": "SALIDA_POR_VENTA", "cantidad_ajustada": 5 },
-        { "sku": "SKU010", "tipo": "SALIDA_POR_VENTA", "cantidad_ajustada": 3 }
+        { "sku": "SKU010", "tipo": "SALIDA_POR_VENTA", "cantidad_ajustada": 3 },#Caso borde -- caracter especial
+        { "sku": "SKU002-ñ", "tipo": "SALIDA_POR_VENTA", "cantidad_ajustada": 999999 }
     ]
     
     # Guardar archivos
